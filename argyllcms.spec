@@ -1,7 +1,7 @@
 Summary:	ICC compatible color management system
 Name:		argyllcms
 Version:	1.4.0
-Release:	2
+Release:	3
 License:	AGPL v3, MIT, GPL v2+, LGPL v2.1+, FDL v1.3
 Group:		X11/Applications/Graphics
 Source0:	http://people.freedesktop.org/~hughsient/releases/h%{name}-%{version}.tar.xz
@@ -19,6 +19,7 @@ BuildRequires:	xorg-libXext-devel
 BuildRequires:	xorg-libXinerama-devel
 BuildRequires:	xorg-libXrandr-devel
 BuildRequires:	xorg-libXxf86vm-devel
+Suggests:	colord
 Suggests:	shared-color-profiles
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -43,8 +44,7 @@ calibration and profiling of displays.
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT	\
-	udevrulesdir=%{_prefix}/lib/udev/rules.d
+	DESTDIR=$RPM_BUILD_ROOT
 
 # they shouldn't put Makefile.am to ref_DATA
 %{__rm} $RPM_BUILD_ROOT%{_datadir}/color/argyll/ref/Makefile.am
@@ -76,5 +76,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_datadir}/color/argyll
 %{_datadir}/color/argyll/ref
-%{_prefix}/lib/udev/rules.d/55-Argyll.rules
 
