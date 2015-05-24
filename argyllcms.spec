@@ -1,11 +1,12 @@
 Summary:	ICC compatible color management system
 Name:		argyllcms
-Version:	1.6.3
+Version:	1.7.0
 Release:	1
 License:	AGPL v3, MIT, GPL v2+, LGPL v2.1+, FDL v1.3
 Group:		X11/Applications/Graphics
 Source0:	http://people.freedesktop.org/~hughsient/releases/h%{name}-%{version}.tar.xz
-# Source0-md5:	f5952a715a61f0a0796122d78f202ccb
+# Source0-md5:	61de9f1604c3116acbedfb756f161c64
+Patch0:		hargyllcms-libs.patch
 URL:		http://www.argyllcms.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -29,7 +30,8 @@ creation for acquisition devices, CMYK printers, film recorders and
 calibration and profiling of displays.
 
 %prep
-%setup -qn h%{name}-%{version}
+%setup -qn hargyllcms-%{version}
+%patch0 -p1
 
 %build
 %{__libtoolize}

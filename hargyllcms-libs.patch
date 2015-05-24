@@ -1,0 +1,11 @@
+diff -aurN hargyllcms-1.7.0.orig/lib/Makefile.am hargyllcms-1.7.0/lib/Makefile.am
+--- hargyllcms-1.7.0.orig/lib/Makefile.am	2015-05-24 17:17:59.827692610 +0200
++++ hargyllcms-1.7.0/lib/Makefile.am	2015-05-24 17:24:08.374900236 +0200
+@@ -90,6 +90,7 @@
+ 	../icc/libargyllicc.la					\
+ 	$(TIFF_LIBS)						\
+ 	$(JPEG_LIBS)						\
++	$(PNG_LIBS)						\
+ 	$(DLOPEN_LIBS)						\
+ 	$(X_LIBS)						\
+ 	-lrt							\
